@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -25,4 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 //admin routes
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backend\DashboardController@index')->name('admin.dashboard');
+    Route::resource('/roles', 'backend\RolesController');
 });
